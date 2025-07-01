@@ -37,7 +37,7 @@ jobs:
             cd /home/rapid-finance
             docker-compose down --remove-orphans
             docker-compose up -d --build
-            echo "Deployment completed successfully!"
+            echo "✅ Deployment completed successfully!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           
