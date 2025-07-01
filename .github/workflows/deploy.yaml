@@ -52,11 +52,6 @@ jobs:
             else
                echo "✅ Docker já está instalado."
             fi
-
-            # Faz deploy
-            cd /home/rapid-finance
-            ls -la
-            echo "🚀 Deploy finalizado!"
           script_stop: true
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
