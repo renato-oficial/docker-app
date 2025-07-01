@@ -55,8 +55,7 @@ jobs:
 
             # Faz deploy
             cd /home/rapid-finance
-            docker compose -f docker-compose.yml down --remove-orphans
-            docker compose -f docker-compose.yml up -d --build
+            ls -la
             echo "🚀 Deploy finalizado!"
           script_stop: true
         env:
