@@ -1,0 +1,43 @@
+name: Node.js CI
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: 
+      name: development
+      url: https:renatodev.tech
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Deploy with SCP
+        uses: appleboy/scp-action@v0.1.3
+        with:
+          host: 149.248.57.32
+          username: root
+          password: ${{ secrets.SECRET_SSH_PASSWORD }}
+          port: 22
+          source: "./"
+          target: "/home/rapid-finance"
+          overwrite: true
+
+      - name: Execute remote command
+        uses: appleboy/ssh-action@v0.1.3
+        with:
+          host: 149.248.57.32
+          username: root
+          password: ${{ secrets.SECRET_SSH_PASSWORD }}
+          port: 22
+          script: |
+            cd /home/rapid-finance
+            docker-compose down --remove-orphans
+            docker-compose up -d --build
+            echo "Deployment completed successfully!"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
