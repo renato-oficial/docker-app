@@ -24,7 +24,7 @@ COPY --from=builder /app/package.json ./package.json
 
 # Define o ambiente de produção
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=3000
 
 # Inicia o app
 CMD ["npm", "start"]

@@ -5,16 +5,16 @@ services:
       context: .
     container_name: nextjs
     expose:
-      - "3001"  # HOST:CONTAINER
+      - "3000"  # HOST:CONTAINER
     environment:
       - NODE_ENV=production
-      - PORT=3001
+      - PORT=3000
 
   nginx:
     image: nginx:alpine
     container_name: nginx
     ports:
-      - "8080:80"
+      - "80:80"
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
     depends_on:

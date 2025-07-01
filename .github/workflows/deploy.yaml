@@ -60,6 +60,7 @@ jobs:
             fi
 
             # Executa o deploy
+            sudo ufw allow 80
             cd /home/rapid-finance
             docker compose -f docker-compose.yml down --remove-orphans
             docker compose -f docker-compose.yml up -d --build
