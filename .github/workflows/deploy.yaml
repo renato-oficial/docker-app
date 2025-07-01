@@ -22,7 +22,7 @@ jobs:
         with:
           host: 149.248.57.32
           username: root
-          password: ${{ secrets.SECRET_SSH_PASSWORD }}
+          password: ${{ secrets.SECRET_RAPIDFINANCE_PASSWORD }}
           port: 22
           source: "./"
           target: "/home/rapid-finance"
@@ -33,7 +33,7 @@ jobs:
         with:
           host: 149.248.57.32
           username: root
-          password: ${{ secrets.SECRET_SSH_PASSWORD }}
+          password: ${{ secrets.SECRET_RAPIDFINANCE_PASSWORD }}
           port: 22
           script: |
             set -e
