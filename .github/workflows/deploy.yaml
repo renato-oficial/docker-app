@@ -36,8 +36,6 @@ jobs:
           password: ${{ secrets.SECRET_SSH_PASSWORD }}
           port: 22
           script: |
-            cd /home/rapid-finance
-            docker-co # Verifica/instala Docker
             if ! command -v docker &> /dev/null; then
               echo "⚠️ Instalando Docker..."
               apt-get update
