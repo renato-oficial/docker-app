@@ -1,11 +1,11 @@
-version: "3.0"
+version: "3.7"
 services:
   app:
     build:
       context: .
       args:
-         - NODE_ENV=production
-         - QSTASH_CURRENT_SIGNING_KEY=sig_6KBaAiwZ23FzfMoSsMcMqvhUoCRN
+        NODE_ENV=production
+        QSTASH_CURRENT_SIGNING_KEY=sig_6KBaAiwZ23FzfMoSsMcMqvhUoCRN
 
     container_name: nextjs
     expose:
