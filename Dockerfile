@@ -25,6 +25,7 @@ COPY --from=builder /app/package.json ./package.json
 # Define o ambiente de produção
 ENV NODE_ENV=production
 ENV PORT=3000
+ENV QSTASH_CURRENT_SIGNING_KEY=QSTASH_CURRENT_SIGNING_KEY
 
 # Inicia o app
 CMD ["npm", "start"]
