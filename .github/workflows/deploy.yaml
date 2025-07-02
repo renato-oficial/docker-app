@@ -72,6 +72,7 @@ jobs:
 
             # Executa o deploy
             sudo ufw allow 80
+            sudo ufw allow 443
             cd /home/rapid-finance
             docker compose -f docker-compose.yml down --remove-orphans
             docker compose -f docker-compose.yml up -d --build
