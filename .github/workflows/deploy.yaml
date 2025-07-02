@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.SECRET_RAPIDFINANCE_PASSWORD }}
           port: 22
           source: "./"
-          target: "/home/rapid-finance"
+          target: "/home/docker-app"
           overwrite: true
 
       - name: Execute remote command
@@ -72,7 +72,7 @@ jobs:
             # Executa o deploy
             sudo ufw allow 80
             sudo ufw allow 443
-            cd /home/rapid-finance
+            cd /home/docker-app
             docker compose -f docker-compose.yml down --remove-orphans
             docker compose -f docker-compose.yml up -d --build
             echo "🚀 Deploy finalizado com sucesso!"
