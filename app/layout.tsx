@@ -23,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  if(!process.env.NODE_ENV) {
-    throw new Error("NODE_ENV is not set");
+  if(!process.env.QSTASH_CURRENT_SIGNING_KEY) {
+    throw new Error("QSTASH_CURRENT_SIGNING_KEY is not set");
   }
   return (
     <html lang="en">
