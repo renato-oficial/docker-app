@@ -4,7 +4,8 @@ services:
     build:
       context: .
       args:
-        QSTASH_CURRENT_SIGNING_KEY: sig_6KBaAiwZ23FzfMoSsMcMqvhUoCRN
+         - NODE_ENV=production
+         
     container_name: nextjs
     expose:
       - "3000"  # HOST:CONTAINER
