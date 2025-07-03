@@ -4,17 +4,25 @@ FROM node:18.18.2-alpine AS builder
 
 WORKDIR /app
 
-ARG NODE_ENV
-ENV NODE_ENV $NODE_ENV
+# Passar a variável como argumento de build
+ENV NEXT_TELEMETRY_DISABLED=1
 ARG QSTASH_CURRENT_SIGNING_KEY
 ENV QSTASH_CURRENT_SIGNING_KEY $QSTASH_CURRENT_SIGNING_KEY
+ARG QSTASH_NEXT_SIGNING_KEY
+ENV QSTASH_NEXT_SIGNING_KEY $QSTASH_NEXT_SIGNING_KEY
 
 # Instala dependência
 COPY package*.json ./
-RUN npm install
+RUN npm ci --include=dev
+
 
 # Copia o restante do projeto e faz o build
 COPY . .
+
+# Gera o Prisma Client
+RUN npx prisma generate
+
+# Faz o build do Next.js
 RUN npm run build
 
 # Production state
@@ -26,6 +34,9 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/ecosystem.config.js ./ecosystem.config.js
+
 
 # Inicia o app
-CMD ["npm", "start"]
+CMD ["npx", "pm2-runtime", "ecosystem.config.js"]
+
