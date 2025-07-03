@@ -19,9 +19,6 @@ RUN npm ci --include=dev
 # Copia o restante do projeto e faz o build
 COPY . .
 
-# Gera o Prisma Client
-RUN npx prisma generate
-
 # Faz o build do Next.js
 RUN npm run build
 

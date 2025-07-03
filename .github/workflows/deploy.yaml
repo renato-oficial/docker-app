@@ -78,4 +78,5 @@ jobs:
             echo "🚀 Deploy finalizado com sucesso!"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENDPOINT: ${{ secrets.ENDPOINT }}
           

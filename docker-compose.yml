@@ -4,16 +4,16 @@ services:
     build:
       context: .
       args:
-        DATABASE_URL: "postgresql://postgres.brwtptcbsotobghzsjcw:Renato@96475870@aws-0-us-east-2.pooler.supabase.com:5432/postgres?pgbouncer=true&connection_limit=1"
-
+        GITHUB_TOKEN: $GITHUB_TOKEN
+        ENDPOINT: $ENDPOINT
     container_name: nextjs
     expose:
       - "3000"  # HOST:CONTAINER
     environment:
       - NODE_ENV=production
       - PORT=3000
-      # Banco de dados
-      - DATABASE_URL=postgresql://postgres.brwtptcbsotobghzsjcw:Renato@96475870@aws-0-us-east-2.pooler.supabase.com:5432/postgres?pgbouncer=true&connection_limit=1
+      - GITHUB_TOKEN=$GITHUB_TOKEN
+      - ENDPOINT=$ENDPOINT
      
     restart: always
       
