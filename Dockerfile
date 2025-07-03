@@ -36,7 +36,7 @@ COPY --from=builder /app/ecosystem.config.js ./ecosystem.config.js
 COPY --from=builder /app/next.config.ts ./next.config.ts
 
 # Instala apenas dependências de produção
-RUN npm ci --only=production
+RUN npm ci
 
 # Inicia o app
 CMD ["npx", "pm2-runtime", "ecosystem.config.js"]
