@@ -6,8 +6,6 @@ services:
       args:
         DATABASE_URL: "postgresql://postgres.brwtptcbsotobghzsjcw:Renato@96475870@aws-0-us-east-2.pooler.supabase.com:5432/postgres?pgbouncer=true&connection_limit=1"
 
-    env_file:
-      - ./app/.env.local
     container_name: nextjs
     expose:
       - "3000"  # HOST:CONTAINER
