@@ -20,9 +20,9 @@ jobs:
       - name: Deploy with SCP
         uses: appleboy/scp-action@v0.1.3
         with:
-          host: ${{ secrets.SECRET_RAPIDFINANCE_HOST}}
+          host: 149.248.57.32
           username: root
-          password: ${{ secrets.SECRET_RAPIDFINANCE_PASSWORD }}
+          password: ${{ secrets.SECRET_SSH_PASSWORD }}
           port: 22
           source: "./"
           target: "/home/docker-app"
@@ -31,9 +31,9 @@ jobs:
       - name: Execute remote command
         uses: appleboy/ssh-action@v0.1.3
         with:
-          host: ${{ secrets.SECRET_RAPIDFINANCE_HOST }}
+          host: 149.248.57.32
           username: root
-          password: ${{ secrets.SECRET_RAPIDFINANCE_PASSWORD }}
+          password: ${{ secrets.SECRET_SSH_PASSWORD }}
           port: 22
           script: |
             set -e

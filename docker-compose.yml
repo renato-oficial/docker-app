@@ -4,8 +4,22 @@ services:
     build:
       context: .
       args:
-        NODE_ENV: production
-        QSTASH_CURRENT_SIGNING_KEY: sig_6KBaAiwZ23FzfMoSsMcMqvhUoCRN
+        DATABASE_URL: "postgresql://postgres.brwtptcbsotobghzsjcw:Renato@96475870@aws-0-us-east-2.pooler.supabase.com:5432/postgres?pgbouncer=true&connection_limit=1"
+        NEXTAUTH_URL: "rapidfinance.com.br"
+        AUTH_SECRET: "5p5Fb+GK0X4EyLux0GOxl+BVi3EOATbQC115ncCU/WY="
+        VERIFY_TOKEN: "eb6910cc-b10d-440d-9e1b-703f4e46074a"
+        FACEBOOK_APP_SECRET: "2cac601a2a64a836a9f4b64aba7a26df"
+        OPENAI_API_KEY: "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"
+        WHATSAPP_OFFICIAL_NUMBER_ID: "668500036349193"
+        META_PERMANENT_TOKEN: "EAAnMS30iEnMBO8IKbqcR13hqUaUin1tbL7Un20JVZBfFLU1KXTD5be1Lk8Sb75rwxLXk1TjDdy1QKE408ldOdxvVc8DzpIgKZBm3H63RzHtqGQaItw93st2QVwZBOZBBOiS0lftNmLk3WkKUcZAZA2offBU17Q6BEsf9gGVLHZA4jPREzoZA2sRMHRW2NoJYWJVdyQZDZD"
+        BASE_URL: "rapidfinance.com.br"
+        QSTASH_URL: "https://qstash.upstash.io"
+        QSTASH_TOKEN: "eyJVc2VySUQiOiI2ZDZmMzdkNy1lMzg0LTRkYjQtODBjYy01N2ZiZTcxMTE0ODUiLCJQYXNzd29yZCI6IjM3YzExMThkMjc3NTQwYzE5NDc2MWRmMDVhNjQ5NzBmIn0="
+        QSTASH_CURRENT_SIGNING_KEY: "sig_6KBaAiwZ23FzfMoSsMcMqvhUoCRN"
+        QSTASH_NEXT_SIGNING_KEY: "sig_6cGzBWefh2tgiWVvHtYta2i5npaB"
+        NEXT_PUBLIC_POSTHOG_KEY: "phc_fK0qLXCwluOaHtZyN4h2iqxOuy24vfk6NHZxRnmqUkm"
+        NEXT_PUBLIC_POSTHOG_HOST: "https://us.i.posthog.com"
+        RESEND_API_KEY: "re_iwwqAu52_MXftY8RYkBdN1h37yxbBvq9g"
 
     env_file:
       - ./app/.env.local
