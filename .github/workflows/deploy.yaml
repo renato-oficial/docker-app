@@ -39,10 +39,10 @@ jobs:
             set -e
 
             echo "🔍 Verificando certificado SSL existente..."
-            if [ ! -f "/etc/letsencrypt/live/rapidfinance.com.br/fullchain.pem" ]; then
+            if [ ! -f "/etc/letsencrypt/live/renatodev.tech/fullchain.pem" ]; then
               echo "🔒 Nenhum certificado encontrado. Instalando Certbot e gerando..."
               apt update && apt install -y certbot
-              certbot certonly --standalone -d rapidfinance.com.br -d www.rapidfinance.com.br --non-interactive --agree-tos -m contato@rapidfinance.com.br
+              certbot certonly --standalone -d renatodev.tech -d www.renatodev.tech --non-interactive --agree-tos -m contato@rapidfinance.com.br
               echo "✅ Certificado emitido!"
             else
               echo "✅ Certificado já existe. Pulando geração."
