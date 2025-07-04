@@ -14,7 +14,8 @@ services:
       - PORT=3000
       - GITHUB_TOKEN=$GITHUB_TOKEN
       - ENDPOINT=$ENDPOINT
-     
+    env_file:
+      - /home/docker-app/.env
     restart: always
       
 
