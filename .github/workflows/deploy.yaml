@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+env:
+  GITHUB_TOKEN: SDSFSFSFSFSF
+  ENDPOINT: https://api.github.com/repos/renatodev/renatodev.tech/contents/
+  
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -32,9 +36,7 @@ jobs:
         run: |
           echo "GITHUB_TOKEN=${GITHUB_TOKEN}" > .env.local
           echo "ENDPOINT=${ENDPOINT}" > .env.local
-        env:
-          GITHUB_TOKEN: SDSFSFSFSFSF
-          ENDPOINT: https://api.github.com/repos/renatodev/renatodev.tech/deployments
+        
           
       - name: Execute remote command
         uses: appleboy/ssh-action@v0.1.3
