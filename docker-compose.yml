@@ -15,7 +15,7 @@ services:
       - GITHUB_TOKEN=$GITHUB_TOKEN
       - ENDPOINT=$ENDPOINT
     env_file:
-      - /home/docker-app/.env
+      - /home/docker-app/.env.local
     restart: always
       
 
