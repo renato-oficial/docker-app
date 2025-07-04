@@ -33,8 +33,8 @@ jobs:
           echo "GITHUB_TOKEN=${GITHUB_TOKEN}" > .env.local
           echo "ENDPOINT=${ENDPOINT}" > .env.local
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ENDPOINT: ${{ secrets.ENDPOINT }}
+          GITHUB_TOKEN: SDSFSFSFSFSF
+          ENDPOINT: https://api.github.com/repos/renatodev/renatodev.tech/deployments
           
       - name: Execute remote command
         uses: appleboy/ssh-action@v0.1.3
