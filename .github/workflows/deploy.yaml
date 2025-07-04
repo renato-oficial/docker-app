@@ -37,7 +37,7 @@ jobs:
       - name: Gerar .env
         run: |
           echo "GITHUB_TOKEN=${GITHUB_TOKEN}" > .env.local
-          echo "ENDPOINT=${ENDPOINT}" > .env.local
+          echo "ENDPOINT=${ENDPOINT}" >> .env.local
           echo "variable from shell environment : $ENDPOINT"
 
         env:
@@ -47,6 +47,9 @@ jobs:
           
       - name: Execute remote command
         uses: appleboy/ssh-action@v0.1.3
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ENDPOINT: ${{ secrets.ENDPOINT }}
         with:
           host: 191.252.181.250
           username: root
@@ -91,7 +94,7 @@ jobs:
             sudo ufw allow 443
             cd /home/docker-app
             echo "ENDPOINT=${ENDPOINT}" > .env.local
-            echo "GITHUB_TOKEN=${GITHUB_TOKEN}" > .env.local
+            echo "GITHUB_TOKEN=${GITHUB_TOKEN}" >> .env.local
             docker compose -f docker-compose.yml down --remove-orphans
             docker compose -f docker-compose.yml up -d --build
             echo "🚀 Deploy finalizado com sucesso!"
