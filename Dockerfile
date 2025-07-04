@@ -36,6 +36,7 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/package.json ./package-lock.json
 COPY --from=builder /app/ecosystem.config.js ./ecosystem.config.js
 COPY --from=builder /app/next.config.ts ./next.config.ts
+COPY --from=builder /app/.env.local ./.env.local
 
 # Instala apenas dependências de produção
 RUN npm install
